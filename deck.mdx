@@ -1,0 +1,169 @@
+import { Appear, Image } from "mdx-deck"
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import { Split } from 'mdx-deck/layouts'
+import A from "./components/A";
+import { 
+  SimpleButton, 
+  ElpButton, 
+  InvertedElpButton, 
+  elpButtonSnippet, 
+  invertedElpButtonSnippet,
+  BlueElpButton,
+  blueElpButtonSnippet
+} from "./components/Button";
+
+export { default as theme } from "./theme";
+
+# You've been doing CSS wrong
+<div>
+  <A href="https://twitter.com/michalwarda">@michalwarda</A>
+  <A style={{ marginLeft: '5px' }} href="https://twitter.com/elpassion">@elpassion</A>
+</div>
+
+```notes
+My name is Michał Warda I come from EL Passion 
+```
+
+---
+
+```html
+<button class="button">Hello confront!</button>
+```
+
+---
+
+<Appear>
+  <SimpleButton>Hello confront!</SimpleButton>
+  <div><br /> 0 lines of code in CSS</div>
+</Appear>
+
+```notes
+This is the simplest button possible.
+Does anyone have an idea how many LOC in CSS it took to style it.
+Yup 0 LOC. This is the basic chrome rendered button on OSX!
+```
+
+---
+
+<Appear>
+  <ElpButton>Hello confront!</ElpButton>
+  <div><br /> 35 lines of code in SASS</div>
+</Appear>
+
+```notes
+Next example:
+Custom color, font, hover, active, DISABLED, radius.
+Does anyone have an idea how many LOC in CSS it took to style it.
+35 lines of SASS around 40 lines of CSS.
+Let's look at the code.
+```
+
+---
+
+<CodeSurfer
+  code={elpButtonSnippet}
+  lang="scss"
+  dark={true}
+  steps={[
+    {},
+    { range: [3, 7], notes: "Box Properties" },
+    { range: [9, 9], notes: "Background" },
+    { range: [11, 18], notes: "Text" },
+    { range: [19, 20], notes: "Extra properties" },
+    { range: [21, 22], notes: "Animations" },
+    { range: [23, 34], notes: "States" },
+    {},
+  ]}
+/>
+
+```notes
+The amount of code grows drastically whenever you try to implement anything. even the simplest stuff.
+35 lines of code gave us a pretty button. Seems like a lot but considering this button is doing so much I would say it was worth it.
+```
+
+---
+
+<Appear>
+  <InvertedElpButton>Hello confront!</InvertedElpButton>
+  <div><br /> 35 lines of code in SASS</div>
+</Appear>
+
+```notes
+This time we have a button with different colors! The simplest way to implement it is obviously to copy all the code but just change the colors.
+How many lines of code it might take in that situation then?
+35 LOC!
+```
+
+---
+
+<CodeSurfer
+  code={invertedElpButtonSnippet}
+  lang="scss"
+  dark={true}
+  steps={[
+    {},
+    { tokens: { 9: [3] } },
+    { tokens: { 24: [3] } },
+    { tokens: { 28: [3] } },
+    {},
+  ]}
+/>
+
+
+```notes
+In our code we added a second class that consists of the definition of secondary-button which differs only by few properties.
+I feel like I could work with this code and not be angry at all.
+70 LOC overall. Everything is working beautifully! Let's continue!
+```
+
+---
+
+<Appear>
+  <BlueElpButton>Hello confront!</BlueElpButton>
+  <div><br /> 35 lines of code in SASS</div>
+</Appear>
+
+```notes
+sigh...
+I hate those designers! Third button on 1 page... What can we do?
+Another 35 LOC!
+```
+
+---
+
+<CodeSurfer
+  code={blueElpButtonSnippet}
+  lang="scss"
+  dark={true}
+  steps={[
+    {},
+    { tokens: { 9: [3] } },
+    { tokens: { 24: [3] } },
+    { tokens: { 28: [3] } },
+    {},
+  ]}
+/>
+
+
+```notes
+In our code we added a third class that consists of the definition of third-button which differs only by few properties.
+Being a programmer for many years I think I found a pattern.
+Obviously something tells us that this is not a perfect solution, but what is so bad about it?
+Is it too long? Is it too complicated? The code still does simple things.
+```
+
+---
+
+<Image src='scp.png' size="contain" />
+
+```notes
+This is the a of a book used as one of the introductions to Computer Science at MIT.
+```
+
+---
+
+Programming is the process of building abstractions
+
+```notes
+It states that programming is a process of building abstractions.
+```

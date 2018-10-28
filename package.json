@@ -1,0 +1,16 @@
+{
+  "name": "css-wrong",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck deck.mdx"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mdx-deck": "^1.7.7",
+    "mdx-deck-code-surfer": "^0.5.3",
+    "raw-loader": "^0.5.1"
+  }
+}
