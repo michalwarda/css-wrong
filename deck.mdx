@@ -4,11 +4,11 @@ import { Split } from 'mdx-deck/layouts'
 import A from "./components/A";
 import { 
   SimpleButton, 
-  ElpButton, 
-  InvertedElpButton, 
+  GreenElpButton, 
+  RedElpButton, 
+  BlueElpButton,
   elpButtonSnippet, 
   invertedElpButtonSnippet,
-  BlueElpButton,
   blueElpButtonSnippet
 } from "./components/Button";
 
@@ -46,7 +46,7 @@ Yup 0 LOC. This is the basic chrome rendered button on OSX!
 ---
 
 <Appear>
-  <ElpButton>Hello confront!</ElpButton>
+  <GreenElpButton>Hello confront!</GreenElpButton>
   <div><br /> 35 lines of code in SASS</div>
 </Appear>
 
@@ -84,7 +84,7 @@ The amount of code grows drastically whenever you try to implement anything. eve
 ---
 
 <Appear>
-  <InvertedElpButton>Hello confront!</InvertedElpButton>
+  <RedElpButton>Hello confront!</RedElpButton>
   <div><br /> 35 lines of code in SASS</div>
 </Appear>
 
@@ -146,15 +146,78 @@ Another 35 LOC!
 
 
 ```notes
-In our code we added a third class that consists of the definition of third-button which differs only by few properties.
-Being a programmer for many years I think I found a pattern.
-Obviously something tells us that this is not a perfect solution, but what is so bad about it?
-Is it too long? Is it too complicated? The code still does simple things.
+Same mechanism as previously. 
 ```
 
 ---
 
-<Image src='scp.png' size="contain" />
+<div>
+  <GreenElpButton>Hello confront!</GreenElpButton>
+  <RedElpButton>Hello confront!</RedElpButton>
+  <BlueElpButton>Hello confront!</BlueElpButton>
+</div>
+<br/>
+105 LOC
+
+---
+
+<CodeSurfer
+  code={elpButtonSnippet + invertedElpButtonSnippet + blueElpButtonSnippet}
+  lang="scss"
+  dark={true}
+  steps={[
+    {},
+    { range: [0, 35], notes: "Green" },
+    { range: [35, 70], notes: "Red" },
+    { range: [70, 105], notes: "Blue" },
+    {},
+  ]}
+/>
+
+```notes
+In our code we added a third class that consists of the definition of third-button which differs only by few properties.
+Being a programmer for many years I think I found a pattern.
+```
+
+---
+
+<Image src='done.png' size="contain" />
+
+```notes
+Obviously something tells us that this is not a perfect solution, but what is so bad about it?
+Is it too long? Is it too complicated? The code still does simple things.
+After all people have fast internet currently and we can easily work with 100 lines of code right? Besides GZIP will handle this perfectly.
+There is no chance I did something wrong here.
+There are no overrides of styles. No !important.
+I know that if something changes in design I would need to change it in 3 places. I’ve got find and replace for that.
+I think that if someone wrote a commit like this for an app that has 3 only buttons and I did the CR for it I would accept it.
+```
+
+---
+
+<CodeSurfer
+  code={elpButtonSnippet + invertedElpButtonSnippet + blueElpButtonSnippet}
+  lang="scss"
+  dark={true}
+  steps={[
+    {},
+  ]}
+/>
+
+
+```notes
+Obviously something tells us that this is not a perfect solution, but what is so bad about it?
+Is it too long? Is it too complicated? The code still does simple things.
+After all people have fast internet currently and we can easily work with 100 lines of code right? Besides GZIP will handle this perfectly.
+There is no chance I did something wrong here.
+There are no overrides of styles. No !important.
+I know that if something changes in design I would need to change it in 3 places. I’ve got find and replace for that.
+I think that if someone wrote a commit like this for an app that has 3 only buttons and I did the CR for it I would accept it.
+```
+
+---
+
+<Image src='calm_down.png' size="contain" />
 
 ```notes
 This is the a of a book used as one of the introductions to Computer Science at MIT.

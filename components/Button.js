@@ -53,11 +53,11 @@ class Button extends React.Component {
   };
 
   render() {
-    return <ElpButton.Button {...this.props} {...this.state} />;
+    return <Button.Button {...this.props} {...this.state} />;
   }
 }
 
-export const ElpButton = styled(Button)`
+export const GreenElpButton = styled(Button)`
   background-color: #28c23e;
 
   &:hover:enabled {
@@ -70,7 +70,7 @@ export const ElpButton = styled(Button)`
 `;
 
 export const elpButtonSnippet = `
-.button {
+.green-button {
   height: 40px;
   padding: 0 25px;
   border: none;
@@ -106,7 +106,7 @@ export const elpButtonSnippet = `
 }
 `;
 
-export const InvertedElpButton = styled(ElpButton)`
+export const RedElpButton = styled(Button)`
   background-color: red;
 
   &:hover:enabled {
@@ -155,7 +155,7 @@ export const invertedElpButtonSnippet = `
 }
 `;
 
-export const BlueElpButton = styled(ElpButton)`
+export const BlueElpButton = styled(Button)`
   background-color: skyblue;
 
   &:hover:enabled {
