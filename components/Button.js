@@ -5,15 +5,13 @@ export const SimpleButton = styled.button`
   font-size: 14px;
 `;
 
-export class ElpButton extends React.Component {
+class Button extends React.Component {
   static Button = styled.button`
     height: 40px;
     padding: 0 25px;
     border: none;
     border-radius: 8px;
     outline: none;
-
-    background-color: #28c23e;
 
     font-size: 14px;
     font-family: arial, sans-serif;
@@ -26,14 +24,6 @@ export class ElpButton extends React.Component {
     cursor: pointer;
 
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-
-    &:hover {
-      background-color: #2fd447;
-    }
-
-    &:active {
-      background-color: #28c23e;
-    }
 
     &:disabled {
       background-color: gray;
@@ -66,6 +56,18 @@ export class ElpButton extends React.Component {
     return <ElpButton.Button {...this.props} {...this.state} />;
   }
 }
+
+export const ElpButton = styled(Button)`
+  background-color: #28c23e;
+
+  &:hover:enabled {
+    background-color: #2fd447;
+  }
+
+  &:active:enabled {
+    background-color: #28c23e;
+  }
+`;
 
 export const elpButtonSnippet = `
 .button {
@@ -107,11 +109,11 @@ export const elpButtonSnippet = `
 export const InvertedElpButton = styled(ElpButton)`
   background-color: red;
 
-  &:hover {
+  &:hover:enabled {
     background-color: crimson;
   }
 
-  &:active {
+  &:active:enabled {
     background-color: red;
   }
 `;
@@ -156,11 +158,11 @@ export const invertedElpButtonSnippet = `
 export const BlueElpButton = styled(ElpButton)`
   background-color: skyblue;
 
-  &:hover {
+  &:hover:enabled {
     background-color: lightskyblue;
   }
 
-  &:active {
+  &:active:enabled {
     background-color: skyblue;
   }
 `;
