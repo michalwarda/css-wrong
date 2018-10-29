@@ -9,7 +9,9 @@ import {
   BlueElpButton,
   elpButtonSnippet, 
   invertedElpButtonSnippet,
-  blueElpButtonSnippet
+  blueElpButtonSnippet,
+  roundedElpButtonSnippet,
+  abstractButton,
 } from "./components/Button";
 
 export { default as theme } from "./theme";
@@ -17,11 +19,12 @@ export { default as theme } from "./theme";
 # You've been doing CSS wrong
 <div>
   <A href="https://twitter.com/michalwarda">@michalwarda</A>
+  <A style={{ marginLeft: '5px' }} href="https://twitter.com/hashtag/softwareengineer">#softwareengineer</A>
   <A style={{ marginLeft: '5px' }} href="https://twitter.com/elpassion">@elpassion</A>
 </div>
 
 ```notes
-My name is Michał Warda I come from EL Passion 
+My name is Michał Warda I'm a software engineer at EL Passion. Today we'll talk about CSS! Ley's jump into it.
 ```
 
 ---
@@ -217,16 +220,118 @@ I think that if someone wrote a commit like this for an app that has 3 only butt
 
 ---
 
-<Image src='calm_down.png' size="contain" />
+New design comes in!
+
+<GreenElpButton>Hello confront!</GreenElpButton>
+<GreenElpButton radius>Hello confront!</GreenElpButton>
 
 ```notes
-This is the a of a book used as one of the introductions to Computer Science at MIT.
+Green button with a 
+Welp. How do we handle this problem? Exactly the same way we did previously!
+```
+---
+
+<CodeSurfer
+  code={roundedElpButtonSnippet}
+  lang="scss"
+  dark={true}
+  steps={[
+    {},
+    { tokens: { 6: [4, 5] } },
+    {},
+  ]}
+/>
+
+```notes
+Everything still works correctly. Another 35 LOC. 140
 ```
 
 ---
 
-Programming is the process of building abstractions
+<GreenElpButton>Hello confront!</GreenElpButton>
+<GreenElpButton radius>Hello confront!</GreenElpButton>
+<br/>
+<RedElpButton>Hello confront!</RedElpButton>
+<RedElpButton radius>Hello confront!</RedElpButton>
+<br/>
+<BlueElpButton>Hello confront!</BlueElpButton>
+<BlueElpButton radius>Hello confront!</BlueElpButton>
+<br/>
+<br/>
+210 LOC
 
 ```notes
-It states that programming is a process of building abstractions.
+The design grows so that it needs other rounded buttons. 210 LOC.
+My eyes see that everything is working. I like this style of coding.
+I didn't see this approach anywhere on the internet! Why does noone suggest to write CSS like this? 
+I will call it DUMBCSS.
+```
+
+---
+
+# DUMB CSS
+
+```notes
+SIGH programming is so easy!
+```
+---
+
+<Image src='calm_down.png' size="contain" />
+
+```notes
+The thing is we are not programming.
+And now all the backend developers smiled because CSS is not programming!
+So what is programming?
+```
+
+---
+
+<Image src='scp.png' size='contain' />
+
+```notes
+This is Structure and Interpretation of Computer Programs. 
+Students at MIT are introduced to programming by this book.
+At the start it tries to explain what is programming.
+```
+
+---
+
+"Combining several simple ideas into one compound one"
+
+```notes
+In it's first chapter it defines programming as: .
+I didn't build any abstractions in my code.
+```
+
+---
+
+How to program in CSS?
+
+---
+
+<Image src="picasso.png" size='contain' />
+
+```notes
+Let's start building abstractions!
+```
+
+---
+
+<CodeSurfer
+  code={abstractButton}
+  lang="scss"
+  dark={true}
+  steps={[
+    {},
+    { range: [6, 6], notes: "Radius" },
+    { range: [37, 39], notes: "<button class=\"button radius-big\">Hello confront!</button>" },
+    { range: [41, 43], notes: "<button class=\"button radius-small\">Hello confront!</button>" },
+    {},
+  ]}
+/>
+
+```notes
+The first abstraction we will be building is creating the radius classes.
+    { range: [9, 9], notes: "Background" },
+    { range: [28, 34], notes: "States" },
 ```

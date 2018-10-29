@@ -10,7 +10,7 @@ class Button extends React.Component {
     height: 40px;
     padding: 0 25px;
     border: none;
-    border-radius: 8px;
+    border-radius: ${({ radius }) => (radius ? "20px" : "4px")};
     outline: none;
 
     font-size: 14px;
@@ -30,7 +30,7 @@ class Button extends React.Component {
       cursor: not-allowed;
     }
 
-    & + & {
+    &:not(:first-of-type) {
       margin-left: 5px;
     }
   `;
@@ -203,3 +203,121 @@ export const blueElpButtonSnippet = `
   }
 }
 `;
+
+export const roundedElpButtonSnippet = `
+.green-rounded-button {
+  height: 40px;
+  padding: 0 25px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+
+  background-color: #28c23e;
+
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #2fd447;
+  }
+
+  &:active {
+    background-color: #28c23e;
+  }
+
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+}
+`
+
+export const abstractButton = `
+.button {
+  height: 40px;
+  padding: 0 25px;
+  border: none;
+  // border-radius: 8px;
+  outline: none;
+
+  // background-color: #28c23e;
+
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+
+  // &:hover {
+  //   background-color: #2fd447;
+  // }
+
+  // &:active {
+  //   background-color: #28c23e;
+  // }
+}
+
+.radius-big {
+  border-radius: 20px;
+}
+
+.radius-small {
+  border-radius: 8px;
+}
+
+.green {
+  background-color: #28c23e;
+
+  &:hover:enabled {
+    background-color: #2fd447;
+  }
+
+  &:active:enabled {
+    background-color: #28c23e;
+  }
+}
+
+.red {
+  background-color: #28c23e;
+
+  &:hover:enabled {
+    background-color: #2fd447;
+  }
+
+  &:active:enabled {
+    background-color: #28c23e;
+  }
+}
+
+.blue {
+  background-color: #28c23e;
+
+  &:hover:enabled {
+    background-color: #2fd447;
+  }
+
+  &:active:enabled {
+    background-color: #28c23e;
+  }
+}
+`
