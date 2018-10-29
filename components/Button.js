@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { injectGlobal } from "styled-components";
+import styled, { css } from "styled-components";
 
 export const SimpleButton = styled.button`
   font-size: 14px;
@@ -60,13 +60,26 @@ class Button extends React.Component {
 export const GreenElpButton = styled(Button)`
   background-color: #28c23e;
 
-  &:hover:enabled {
-    background-color: #2fd447;
-  }
+  ${({ broken }) =>
+    broken
+      ? css`
+          &:hover {
+            background-color: #2fd447;
+          }
 
-  &:active:enabled {
-    background-color: #28c23e;
-  }
+          &:active {
+            background-color: #28c23e;
+          }
+        `
+      : css`
+          &:hover:enabled {
+            background-color: #2fd447;
+          }
+
+          &:active:enabled {
+            background-color: #28c23e;
+          }
+        `};
 `;
 
 export const elpButtonSnippet = `
@@ -109,13 +122,26 @@ export const elpButtonSnippet = `
 export const RedElpButton = styled(Button)`
   background-color: red;
 
-  &:hover:enabled {
-    background-color: crimson;
-  }
+  ${({ broken }) =>
+    broken
+      ? css`
+          &:hover {
+            background-color: crimson;
+          }
 
-  &:active:enabled {
-    background-color: red;
-  }
+          &:active {
+            background-color: red;
+          }
+        `
+      : css`
+          &:hover:enabled {
+            background-color: crimson;
+          }
+
+          &:active:enabled {
+            background-color: red;
+          }
+        `};
 `;
 
 export const invertedElpButtonSnippet = `
@@ -158,13 +184,26 @@ export const invertedElpButtonSnippet = `
 export const BlueElpButton = styled(Button)`
   background-color: skyblue;
 
-  &:hover:enabled {
-    background-color: lightskyblue;
-  }
+  ${({ broken }) =>
+    broken
+      ? css`
+          &:hover {
+            background-color: lightskyblue;
+          }
 
-  &:active:enabled {
-    background-color: skyblue;
-  }
+          &:active {
+            background-color: skyblue;
+          }
+        `
+      : css`
+          &:hover:enabled {
+            background-color: lightskyblue;
+          }
+
+          &:active:enabled {
+            background-color: skyblue;
+          }
+        `};
 `;
 
 export const blueElpButtonSnippet = `
@@ -239,7 +278,7 @@ export const roundedElpButtonSnippet = `
     cursor: not-allowed;
   }
 }
-`
+`;
 
 export const abstractButton = `
 .button {
@@ -288,11 +327,11 @@ export const abstractButton = `
 .green {
   background-color: #28c23e;
 
-  &:hover:enabled {
+  &:hover {
     background-color: #2fd447;
   }
 
-  &:active:enabled {
+  &:active {
     background-color: #28c23e;
   }
 }
@@ -300,11 +339,11 @@ export const abstractButton = `
 .red {
   background-color: #28c23e;
 
-  &:hover:enabled {
+  &:hover {
     background-color: #2fd447;
   }
 
-  &:active:enabled {
+  &:active {
     background-color: #28c23e;
   }
 }
@@ -312,12 +351,12 @@ export const abstractButton = `
 .blue {
   background-color: #28c23e;
 
-  &:hover:enabled {
+  &:hover {
     background-color: #2fd447;
   }
 
-  &:active:enabled {
+  &:active {
     background-color: #28c23e;
   }
 }
-`
+`;

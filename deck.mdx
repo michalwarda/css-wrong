@@ -2,6 +2,7 @@ import { Appear, Image } from "mdx-deck"
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import { Split } from 'mdx-deck/layouts'
 import A from "./components/A";
+import Phone from "./components/Sound";
 import { 
   SimpleButton, 
   GreenElpButton, 
@@ -317,21 +318,113 @@ Let's start building abstractions!
 
 ---
 
+<GreenElpButton>Hello confront!</GreenElpButton>
+<GreenElpButton radius>Hello confront!</GreenElpButton>
+
+```notes
+Those 2 look very similar and simple. Let's make 1 button that combines those 2.
+```
+
+---
+
+```scss
+.button {
+  // ...
+  border-radius: 8px;
+  border-radius: 20px;
+  // ...
+}
+```
+
+```notes
+If we just put both values together this will not work obviously.
+```
+
+---
+
 <CodeSurfer
   code={abstractButton}
   lang="scss"
   dark={true}
   steps={[
-    {},
     { range: [6, 6], notes: "Radius" },
     { range: [37, 39], notes: "<button class=\"button radius-big\">Hello confront!</button>" },
     { range: [41, 43], notes: "<button class=\"button radius-small\">Hello confront!</button>" },
-    {},
   ]}
 />
 
 ```notes
-The first abstraction we will be building is creating the radius classes.
-    { range: [9, 9], notes: "Background" },
-    { range: [28, 34], notes: "States" },
+The first method of abstracting common behaviour in CSS we get to learn is that one element can have multiple classes.
+We can define the common properties in one class and the other ones in other classes.
+This way we reduced the number of LOC back to around 110!
+This is the first abstraction we built inside our code. We just became programmers!
+```
+
+---
+
+<GreenElpButton>Hello confront!</GreenElpButton>
+<GreenElpButton radius>Hello confront!</GreenElpButton>
+<br/>
+<RedElpButton>Hello confront!</RedElpButton>
+<RedElpButton radius>Hello confront!</RedElpButton>
+<br/>
+<BlueElpButton>Hello confront!</BlueElpButton>
+<BlueElpButton radius>Hello confront!</BlueElpButton>
+<br/>
+<br/>
+110 LOC
+
+---
+
+<CodeSurfer
+  code={abstractButton}
+  lang="scss"
+  dark={true}
+  steps={[
+    { range: [9, 9], notes: "background-color" },
+    { range: [28, 34], notes: "background-color" },
+    { range: [45, 55], notes: "<button class=\"button green\">Hello confront!</button>" },
+    { range: [57, 67], notes: "<button class=\"button red\">Hello confront!</button>" },
+    { range: [69, 79], notes: "<button class=\"button blue\">Hello confront!</button>" },
+  ]}
+/>
+
+```notes
+Extract common background lines to a class.
+```
+
+---
+
+<GreenElpButton broken>Hello confront!</GreenElpButton>
+<GreenElpButton radius broken>Hello confront!</GreenElpButton>
+<br/>
+<RedElpButton broken>Hello confront!</RedElpButton>
+<RedElpButton radius broken>Hello confront!</RedElpButton>
+<br/>
+<BlueElpButton broken>Hello confront!</BlueElpButton>
+<BlueElpButton radius broken>Hello confront!</BlueElpButton>
+<br/>
+<br/>
+80 LOC
+
+
+```notes
+Now we created 2 abstractions and everything is still working!
+Brilliant job! Now we can call ourselves programmers!
+```
+---
+
+<Phone />
+<Image src="angry_client.png" size="contain" />
+
+```notes
+There is a bug in the application!
+Try to hover over a disabled button!
+```
+
+---
+
+<GreenElpButton broken>Hello confront!</GreenElpButton>
+
+```notes
 ```
