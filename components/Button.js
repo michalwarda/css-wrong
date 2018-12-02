@@ -360,3 +360,73 @@ export const abstractButton = `
   }
 }
 `;
+
+export const fixedButtonSnippet = `
+.button {
+  height: 40px;
+  padding: 0 25px;
+  border: none;
+  outline: none;
+
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+}
+
+.radius-big {
+  border-radius: 20px;
+}
+
+.radius-small {
+  border-radius: 8px;
+}
+
+.green {
+  background-color: #28c23e;
+
+  &:hover:enabled {
+    background-color: #2fd447;
+  }
+
+  &:active:enabled {
+    background-color: #28c23e;
+  }
+}
+
+.red {
+  background-color: #28c23e;
+
+  &:hover:enabled {
+    background-color: #2fd447;
+  }
+
+  &:active:enabled {
+    background-color: #28c23e;
+  }
+}
+
+.blue {
+  background-color: #28c23e;
+
+  &:hover:enabled {
+    background-color: #2fd447;
+  }
+
+  &:active:enabled {
+    background-color: #28c23e;
+  }
+}
+`;

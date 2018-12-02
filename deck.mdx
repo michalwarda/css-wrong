@@ -13,6 +13,7 @@ import {
   blueElpButtonSnippet,
   roundedElpButtonSnippet,
   abstractButton,
+  fixedButtonSnippet,
 } from "./components/Button";
 
 export { default as theme } from "./theme";
@@ -410,7 +411,13 @@ Extract common background lines to a class.
 
 ```notes
 Now we created 2 abstractions and everything is still working!
-Brilliant job! Now we can call ourselves programmers!
+Brilliant job! Now we can call ourselves programmers and get some rest!
+```
+---
+<Image src="sleep.png" size="contain" />
+
+```notes
+PRESS S
 ```
 ---
 
@@ -426,5 +433,126 @@ Try to hover over a disabled button!
 
 <GreenElpButton broken>Hello confront!</GreenElpButton>
 
+---
+
+<CodeSurfer
+  code={fixedButtonSnippet}
+  lang="scss"
+  dark={true}
+  steps={[
+    { range: [20, 23] },
+    { range: [37, 43] },
+    { tokens: { 37: [2] } },
+    { tokens: { 41: [2] } },
+  ]}
+/>
+
 ```notes
+Disabled had a lower specificity than hover so the button style got overriden.
+We will fix it by adding the enabled selector to ensure that the styles are not applied to disabled button.
 ```
+
+---
+
+<GreenElpButton>Hello confront!</GreenElpButton>
+
+---
+
+<div>What did we learn?</div>
+<Appear>
+  <div>Building Abstractions is hard!</div>
+  <div>Even the simplest!</div>
+</Appear>
+
+```notes
+Building abstractions in CSS is hard. Even the simplest ones.
+Nothing is for free.
+```
+
+---
+
+export default Split
+
+<img src="w1.png" />
+<img src="w2.png" />
+
+```notes
+You gain a lot from abstractions but also you introduce complexity into the program.
+We don't want to give up building abstractions.
+But we are very afraid of introducing complexity.
+```
+
+---
+
+How do we get some sleep?
+
+---
+
+<Appear>
+  <span>Remember possible mistakes and not make them again!</span>
+  <span> (Obviously)</span>
+  <br/>
+  <span>Click through the app after changes more carefully!</span>
+  <span> (Obviously)</span>
+  <br/>
+  <span>Do not deploy right before sleep!</span>
+  <span> (Obviously)</span>
+</Appear>
+
+---
+
+Any other suggestions?
+
+---
+
+Treat your CSS just like you would treat any other language!
+
+---
+
+Our process previously
+<Appear>
+  <span><span style={{color: "green"}}>Write simplest green button<br/></span></span>
+  <span><span style={{color: "green"}}>Duplicate button for different colors<br/></span></span>
+  <span><span style={{color: "green"}}>Duplicate button for different radiuses<br/></span></span>
+  <span><span style={{color: "green"}}>Extract border to different class<br/></span></span>
+  <span><span style={{color: "red"}}>Extract colors to different class<br/></span></span>
+  <span><span style={{color: "green"}}>Apply the fix</span></span>
+</Appear>
+
+```notes
+Where did we make the mistake?
+We were safe till the point we changed the backgrounds. Nothing bad happened before that. 
+What was so different about changing background that we should have taken that into account?
+I don't know but we can try to fix it how others do it. Write the code in TDD!
+```
+
+---
+
+We can write automated tests for the button
+```javascript
+test("disabled button on hover has correct color", () => {
+  const button = document.getElementById("button");
+  button.hover();
+  expect(button.backgroundColor).toBe("gray");
+})
+```
+
+---
+
+<Appear>
+  <span>Even the testing eager guys like me have a problem with that<br/></span>
+  <span>There will be a lot of those<br/></span>
+  <span>You still need to manually look at the button to know if it looks allright in your design<br/></span>
+</Appear>
+
+---
+
+We can understand the platform and not fight it
+
+---
+
+Embrace the platform
+
+---
+
+Thank you
